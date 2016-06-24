@@ -1,8 +1,9 @@
+
 (function($) {
 
   var methods = {
     init: function() {
-      new CardJs(this);
+      new CardJs(this, arguments);
     }
   };
 
@@ -32,6 +33,8 @@
 //
 $(function() {
   $(".card-js").each(function(i, obj) {
-    $(obj).CardJs();
+    var options = {};
+    // var options = {EXPIRY_USE_DROPDOWNS: false, EXPIRY_NUMBER_OF_YEARS: 20};
+    $(obj).CardJs(options);
   });
 });
