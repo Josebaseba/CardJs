@@ -19,7 +19,7 @@ function CardJs(elem, arguments) {
   if(this.stripe) {
     this.captureName = false;
   }
-  
+
   if(arguments.length){
     for(var i = 0; i < Object.keys(arguments[0]).length; i++){
       var attribute = Object.keys(arguments[0])[i];
@@ -1032,11 +1032,6 @@ CardJs.prototype.setupExpiryInput = function() {
       }
     });
 
-    if(this.stripe) {
-      this.expiryMonthInput.attr("data-stripe", "exp-month");
-      this.expiryYearInput.attr("data-stripe", "exp-year");
-    }
-
     this.expiryMonthYearInput.blur(function(e) {
       $this.refreshExpiryMonthValidation();
     });
@@ -1047,6 +1042,10 @@ CardJs.prototype.setupExpiryInput = function() {
     expiryInput.append(this.expiryYearInput);
   }
 
+  if(this.stripe) {
+    this.expiryMonthInput.attr("data-stripe", "exp-month");
+    this.expiryYearInput.attr("data-stripe", "exp-year");
+  }
 
   wrapper.append(expiryInput);
   wrapper.append("<div class='icon'></div>");
